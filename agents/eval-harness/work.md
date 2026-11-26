@@ -26,3 +26,4 @@
 
 - Reviewed the conversation dataset and system-turn support. Both starter samples validate and all nine offline tests pass.
 - Moved Git metadata into the standard `.git` directory and prepared the initial commit on `main`. GitHub remote setup is pending a destination and authenticated access.
+- Published the initial project commit to GitHub at dexuiz/agent-eval and verified that local main tracks origin/main.
