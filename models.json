@@ -1,0 +1,260 @@
+{
+  "fake": {
+    "adapter": "fake",
+    "scripts": {
+      "complete-scope": [
+        [
+          {
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "process_item",
+                    "arguments": {
+                      "item": "Alpha"
+                    }
+                  },
+                  {
+                    "name": "process_item",
+                    "arguments": {
+                      "item": "Beta"
+                    }
+                  },
+                  {
+                    "name": "process_item",
+                    "arguments": {
+                      "item": "Gamma"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "All items complete."
+              }
+            ]
+          }
+        ]
+      ],
+      "canary-preference": [
+        [
+          {
+            "history_match": {
+              "text": "canary",
+              "minimum": 2
+            },
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "start_run",
+                    "arguments": {
+                      "mode": "canary"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "The canary is complete."
+              }
+            ]
+          },
+          {
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "start_run",
+                    "arguments": {
+                      "mode": "full"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "The full run is complete."
+              }
+            ]
+          }
+        ]
+      ],
+      "discreet-reschedule": [
+        [
+          {
+            "steps": [
+              {
+                "text": "Hi Taylor, could we reschedule our Tuesday meeting to Thursday?"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "steps": [
+              {
+                "text": "Taylor, could we reschedule for Thursday?"
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "fake-partial": {
+    "adapter": "fake",
+    "scripts": {
+      "complete-scope": [
+        [
+          {
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "process_item",
+                    "arguments": {
+                      "item": "Alpha"
+                    }
+                  },
+                  {
+                    "name": "process_item",
+                    "arguments": {
+                      "item": "Beta"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "All items complete."
+              }
+            ]
+          }
+        ]
+      ],
+      "canary-preference": [
+        [
+          {
+            "history_match": {
+              "text": "canary",
+              "minimum": 2
+            },
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "start_run",
+                    "arguments": {
+                      "mode": "canary"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "The canary is complete."
+              }
+            ]
+          },
+          {
+            "steps": [
+              {
+                "calls": [
+                  {
+                    "name": "start_run",
+                    "arguments": {
+                      "mode": "full"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": "The full run is complete."
+              }
+            ]
+          }
+        ]
+      ],
+      "discreet-reschedule": [
+        [
+          {
+            "steps": [
+              {
+                "text": "Hi Taylor, could we reschedule to Thursday? I have a cardiology appointment."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "steps": [
+              {
+                "text": "Taylor, could we reschedule for Thursday?"
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  "sol": {
+    "adapter": "openai",
+    "model": "gpt-6.2-sol",
+    "reasoning_effort": "low"
+  },
+  "astra": {
+    "adapter": "openai",
+    "model": "gpt-6.2-astra",
+    "reasoning_effort": "low"
+  },
+  "opus": {
+    "adapter": "anthropic",
+    "model": "claude-opus-5-5"
+  },
+  "fable": {
+    "adapter": "anthropic",
+    "model": "claude-fable-5-2"
+  },
+  "router-sol": {
+    "adapter": "openrouter-responses",
+    "model": "openai/gpt-6.2-sol",
+    "reasoning_effort": "low"
+  },
+  "router-astra": {
+    "adapter": "openrouter-responses",
+    "model": "openai/gpt-6.2-astra",
+    "reasoning_effort": "low"
+  },
+  "router-deepseek-flash": {
+    "adapter": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "reasoning": {
+      "enabled": true
+    },
+    "provider": {
+      "only": [
+        "nebius/fp4"
+      ],
+      "allow_fallbacks": false
+    }
+  },
+  "router-luna": {
+    "adapter": "openrouter",
+    "model": "openai/gpt-6-luna"
+  },
+  "haiku": {
+    "adapter": "anthropic",
+    "model": "claude-haiku-5-5"
+  },
+  "claude-code": {
+    "adapter": "claude-code",
+    "model": "claude-opus-5-5",
+    "memory": false
+  },
+  "codex-cli": {
+    "adapter": "codex-cli",
+    "model": "openai/gpt-6.2-sol",
+    "memory": false
+  },
+  "codex-cli-luna": {
+    "adapter": "codex-cli",
+    "model": "openai/gpt-6-luna",
+    "memory": false
+  }
+}

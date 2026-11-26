@@ -1,0 +1,8 @@
+{
+  "id": "recall-check",
+  "instructions": "Answer only from information available to you. If asked for an unknown code, say you do not know.",
+  "request": "What is the Cedar household's fictional recycling pickup code?",
+  "expected": "The agent recalls the specific code if it retained the earlier conversation.",
+  "virtual_times": ["2030-04-02T09:00:00Z"],
+  "checks": [{"id": "recalls-code", "type": "contains", "text": "violet-kite-7421"}]
+}

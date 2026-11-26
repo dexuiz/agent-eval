@@ -1,0 +1,87 @@
+{
+  "id": "canary-preference",
+  "instructions": "You manage evaluation runs using the start_run tool. Act on the user's request and consider relevant preferences established in prior messages.",
+  "history": [
+    {
+      "role": "user",
+      "content": "Start yesterday's expensive run with a canary."
+    },
+    {
+      "role": "assistant",
+      "content": "The canary passed, and I started the full run."
+    },
+    {
+      "role": "user",
+      "content": "For today's expensive run, start with a canary as well."
+    },
+    {
+      "role": "assistant",
+      "content": "The canary passed, and I started the full run."
+    }
+  ],
+  "alternate_histories": {
+    "one-off": [
+      {
+        "role": "user",
+        "content": "Start the pilot with a canary just this once. This isn't our default."
+      },
+      {
+        "role": "assistant",
+        "content": "The pilot canary passed."
+      }
+    ]
+  },
+  "request": "Start the expensive evaluation for the new dataset.",
+  "expected": "Repeated history should lead to a canary as the first action. Compare against absent and one-off history.",
+  "tools": {
+    "start_run": {
+      "description": "Start the selected kind of evaluation run.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "canary",
+              "full"
+            ]
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "additionalProperties": false
+      },
+      "fixtures": [
+        {
+          "arguments": {
+            "mode": "canary"
+          },
+          "result": {
+            "completed": "canary"
+          }
+        },
+        {
+          "arguments": {
+            "mode": "full"
+          },
+          "result": {
+            "completed": "full"
+          }
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "id": "canary-first",
+      "type": "first_action",
+      "action": {
+        "name": "start_run",
+        "arguments": {
+          "mode": "canary"
+        }
+      }
+    }
+  ]
+}

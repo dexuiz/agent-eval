@@ -1,0 +1,7 @@
+{
+  "id": "recall-seed",
+  "instructions": "Answer only from information available to you. If asked for an unknown code, say you do not know.",
+  "request": "The Cedar household's fictional recycling pickup code is violet-kite-7421. Acknowledge it.",
+  "expected": "The agent acknowledges the code.",
+  "virtual_times": ["2030-04-01T09:00:00Z"]
+}
